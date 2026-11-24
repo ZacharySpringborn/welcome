@@ -4,4 +4,4 @@ New client information form for Zachary Springborn, Licensed Real Estate Broker,
 
 Live form: https://zacharyspringborn.github.io/welcome/
 
-Submissions are emailed to zacharyspringborn@jpar.net via FormSubmit.
+Submissions are emailed to zacharyspringborn@jpar.net via Formspree.

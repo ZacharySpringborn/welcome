@@ -135,11 +135,9 @@ button.go:hover{filter:brightness(.88)}button.go:disabled{opacity:.6;cursor:wait
     <button type="button" class="tbtn" onclick="window.print()">Print</button>
   </div>
 
-  <form id="intake" action="https://formsubmit.co/zacharyspringborn@jpar.net" method="POST" novalidate autocomplete="on">
+  <form id="intake" action="https://formspree.io/f/xaeolvgj" method="POST" novalidate autocomplete="on">
     <input type="hidden" name="_subject" id="subjectField" value="New Client Intake">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="false">
-    <div class="hp" aria-hidden="true"><label>Leave this blank<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+    <div class="hp" aria-hidden="true"><label>Leave this blank<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
     <input type="hidden" name="Submitted At" id="submittedAt" value="">
 
     <!-- 1 -->
@@ -318,7 +316,7 @@ button.go:hover{filter:brightness(.88)}button.go:disabled{opacity:.6;cursor:wait
 
 <script>
 (function(){
-  var ENDPOINT = "https://formsubmit.co/ajax/zacharyspringborn@jpar.net";
+  var ENDPOINT = "https://formspree.io/f/xaeolvgj";
   var $ = function(id){ return document.getElementById(id); };
   var form = $('intake');
 
@@ -424,11 +422,11 @@ button.go:hover{filter:brightness(.88)}button.go:disabled{opacity:.6;cursor:wait
     fetch(ENDPOINT, { method:'POST', body:new FormData(form), headers:{ 'Accept':'application/json' } })
       .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return {ok:r.ok, j:j}; }); })
       .then(function(res){
-        if (res.ok && String(res.j.success) === 'true') {
+        if (res.ok && res.j.ok !== false) {
           $('doneName').textContent = first ? ', ' + first : '';
           $('formview').hidden = true; $('done').hidden = false;
           window.scrollTo(0,0);
-        } else { throw new Error(res.j && res.j.message || 'failed'); }
+        } else { throw new Error(res.j && res.j.errors && res.j.errors.map(function(x){return x.message;}).join(' ') || 'failed'); }
       })
       .catch(function(){
         btn.disabled = false; btn.textContent = 'Send my information';
