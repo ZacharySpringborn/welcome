@@ -1,7 +1,8 @@
 # Welcome
 
-New client information form for Zachary Springborn, Licensed Real Estate Broker, JPAR® Modern Real Estate.
+Forms for Zachary Springborn, Licensed Real Estate Broker, JPAR® Modern Real Estate.
 
-Live form: https://zacharyspringborn.github.io/welcome/
+- New client intake: https://zacharyspringborn.github.io/welcome/
+- Trade partner / preferred vendor: https://zacharyspringborn.github.io/welcome/trades/
 
-Submissions are emailed to zacharyspringborn@jpar.net via Formspree.
+Submissions are delivered by Formspree.
